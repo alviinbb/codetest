@@ -1,0 +1,121 @@
+
+<!doctype html>
+<html>
+    <head>
+        <title>Kindey Health Australia</title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        
+        <script type="text/javascript" src="jquery-3.2.1.min.js"></script>
+        
+        <style type="text/css">
+
+            td{
+                
+                padding: 5px;
+                text-align: center;
+            }
+            
+            h1{
+                
+                text-align:center;
+            }
+            
+            h2{
+                
+                align-content: center;
+                text-align: center;
+                
+            }
+            
+            a{
+                
+                text-decoration: none;
+                margin: 5px;
+                
+            }
+            
+            a:hover{
+                
+                text-decoration: underline;
+            }
+            
+            body{
+                
+                text-align: center;
+            }
+
+        </style>    
+    </head>
+
+    <body>
+        <h1>Kidney Health Australia</h1>
+        <div id="menu">
+            <a href="index.html">Home</a>
+            <a href="saturday.html">Saturday Lotto</a>
+            <a href="oz.html">Oz Lotto</a>
+            <a href="powerball.html">Powerball</a>
+            <a href="mater.html">Mater Prize Home</a>
+            <a href="surf.html">Surf Lifesavers</a>
+            <a href="endeavour.html">Endeavour Foundation</a>
+            <a href="superJackpot.html">Super Jackpot</a>
+            <a href="pools.html">The Pools</a>
+            <a href="strike.html">Lotto Strike</a>
+            <a href="monday.html">Monday Lotto</a>
+            <a href="wednesday.html">Wednesday Lotto</a>
+            <a href="megaJackpot.html">Mega Jackpot</a>
+            <a href="actKids.html">Act For Kids</a>
+            <a href="wales.html">Prince Wales Hospital Foundation</a>
+            <a href="kidney.html">Kidney Health Australia</a>
+            <a href="endeavourGolden.html">Endeavour Golden Rewards</a>
+        
+        </div>
+       <h1>Previous Results</h1>
+        <div id="results">
+        
+        
+        </div>
+        
+        <script type="text/javascript">
+        
+            var ajaxhttp = new XMLHttpRequest();
+            var url = "json/response.json";
+            
+            ajaxhttp.open("GET", url, true);
+            ajaxhttp.setRequestHeader("content-type", "application/json");
+            ajaxhttp.onreadystatechange = function()
+            {
+                if (ajaxhttp.readyState == 4 && ajaxhttp.status == 200)
+                {
+                    var jcontent = JSON.parse(ajaxhttp.responseText);
+                    console.log(jcontent);
+                    console.log(ajaxhttp);
+                    //alert(jcontent.result[0].name);
+                    
+                    var html = '';
+                    
+                    html +="<div id='draw'>";
+                    html += "<strong>Date: </strong>" + jcontent.result[14].draw.draw_date;
+                    html += "<br><strong>Draw Number: </strong>" + jcontent.result[14].draw.draw_number;
+                    html += "<br><strong>Prize: </strong>" + jcontent.result[14].draw.prize.value.amount + jcontent.result[14].draw.prize.value.currency;
+                    html += "<br><img src='" + jcontent.result[14].draw.prize.edm_image  + "'>";
+                    
+                    html +="</div>";
+                    
+                    
+                    
+                    $('#results').html(html);
+                }
+            }
+            
+            ajaxhttp.send(null);
+            
+            
+            
+        </script>
+        
+        
+    </body>
+</html>
