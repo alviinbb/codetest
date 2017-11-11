@@ -1,7 +1,7 @@
 # webapp
-This project exists was requested as a PHP skill test.
+This project was requested as a PHP skill test.
 
-Project is AngularJS for client side script and PHP for the backend. 
+Project is AngularJS for client side scripting and PHP for the backend. 
 
 To run/check the finished project, you will need to install [docker](https://docs.docker.com/engine/installation/).
 
@@ -17,9 +17,12 @@ Creates a statically linked binary for linux because docker runs under linux.
 ```
 
 ## webapp build the docker image
+You will need to modify the webapp/www/PortalConfig.php before start building the image.
+$API_ENDPOINT = the endpoint for codetest API;  (normally it should be 172.17.0.0/24) [https://stackoverflow.com/questions/24319662/from-inside-of-a-docker-container-how-do-i-connect-to-the-localhost-of-the-mach]
+
 
 ```bash
- cd webapp/
+  
  sudo docker build -t webapp .
 ```
 
@@ -31,17 +34,17 @@ Creates a statically linked binary for linux because docker runs under linux.
  ./run.sh
 ```
 
-To access [http://localhost:8080](http://localhost:8088)
+To check/access API response [http://localhost:8080](http://localhost:8088)
 
-##start webapp
-You will need to start webapp container, and modify the webapp PortalConfig.php
+## start webapp
+Start webapp container.
 
 ```bash
  cd webapp/
  docker run -p 7088:80 -d webapp
 ```
 
-##modify webapp config to point to the correct API endpoint
+## modify webapp config to point to the correct API endpoint
 you will need to access the container or cp a file from host
 
 ```bash
@@ -49,17 +52,3 @@ you will need to access the container or cp a file from host
  docker run -p 7088:80 -d webapp
 ```
 
-
-# Development
-
-## Git 
-Add git hooks
-```bash
-ln -s `pwd`/hooks/pre-commit .git/hooks
-```
-
-## Local build
-
-```bash
-go get -v ./... && go build -v
-```
