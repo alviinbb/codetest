@@ -1,0 +1,61 @@
+<!-- BreadCrumb -->
+<div class="row wrapper border-bottom page-heading">
+    <div class="col-lg-10">
+        <h1>Super Jackpot Lottery</h1>
+        <ol class="breadcrumb">
+            <li>
+                <a>Powerball</a>
+            </li>
+            <li>
+                <a>Surf Lifesavers</a>
+            </li>
+            <li>
+                <a>Saturday Lotto</a>
+            </li>
+            <li>
+                <a class="active">Super Jackpot Lottery</a>
+            </li>
+        </ol>
+    </div>
+</div>
+
+<!-- Content -->
+<div class="wrapper wrapper-content animated fadeInRight" ng-controller="AccountCtrl as account" ng-init="contractsInit()">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Super Jackpot Lottery</h5>
+                </div>
+            <div class="ibox-content">
+                <div class="table-responsive">
+                    <div id="access-restriction" class="alert alert-danger" style="display: none;">
+                        <span class="text-danger">{{ accessRestrictionMessage }}</span>
+                    </div>
+                    <table id="lotto-table" class="table table-striped table-bordered table-hover table=responsive" >
+                    <thead style="color: #333;" >
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price Per Game</th>
+                            <th>Game Range</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    </table>
+                    <div>
+                        <table class="table table-hover table-responsive">
+                            <tbody>
+                                <tr>
+                                   
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

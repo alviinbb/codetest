@@ -1,0 +1,35 @@
+<div class="row border-bottom" ng-controller="MainCtrl as main">
+    <nav class="navbar white-bg navbar-fixed-top" role="navigation" style="margin-bottom: 0;">
+        <div class="navbar-header">
+            <span minimaliza-sidebar></span>
+            <span class="m-r-sm welcome-message" style="position: relative;top: 27px;float:left;">
+                <span style="color: #d5202d;"></span>
+                <small>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </small>
+            </span>
+        </div>
+
+        <div class="nav navbar-top-links navbar-right" style="margin-right: 15px;margin-top: 20px;">
+            <span class="m-r-sm welcome-message">
+                <span style="font-weight:bold;">
+                    <span style="color: #d5202d;"></span>
+                </span>
+            </span>
+        <!--
+            Log out 
+            TODO: Create Log out ajax request, kill session and return to login page.[DONE]
+        -->
+            <span class="welcome-message">
+                <a class="btn btn-outline btn-default" ng-click="main.logOut()">
+                    <i class="fa fa-unlock-alt"></i>
+                    <span>Log out</span>
+                </a>
+            </span>
+
+            <div class="visible-xs" style="float:right;">
+                <a class="btn btn-outline btn-danger" ng-click="main.logOut()">
+                    <i class="fa fa-unlock-alt"></i> 
+                </a>
+            </div>
+        </div>
+    </nav>
+</div>

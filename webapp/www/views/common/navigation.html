@@ -1,0 +1,36 @@
+<div ng-controller="MainCtrl as main">
+    <nav class="navbar-default-colour2 navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul side-navigation class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element"> 
+                        <span class="clear ">
+                            <span class="m-t-xs" style="color: #f7dc4f;">
+                                <p style="color:#fff;">Welcome back,</p>
+                            </span>
+                            <span class="user-name">{{ main.userName }}</span>
+                        </span>
+                    </div>
+                </li>
+                  
+                <li ng-class="{ active: $state.includes('myAccount') }">
+                    <a href="#">
+                        <i class="pe-7s-portfolio pe-2x pe-va"></i>
+                        <span class="nav-label">Games</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level collapse" style="height: 0px;">
+                        <li ng-class="{ active: $state.includes('myAccount.powerball') }"><a ui-sref="myAccount.powerball">Powerball</a></li>
+                        <li ng-class="{ active: $state.includes('myAccount.surf-lifesavers') }"><a  ui-sref="myAccount.surf-lifesavers">Surf Lifesavers</a></li>
+                        <li ng-class="{ active: $state.includes('myAccount.saturday-lotto') }" ><a ui-sref="myAccount.saturday-lotto">Saturday Lotto</a></li>
+                        <li ng-class="{ active: $state.includes('myAccount.super-jackpot-lottery') }"><a ui-sref="myAccount.super-jackpot-lottery">Super Jackpot Lottery</a></li>                        
+                    </ul>
+                </li>
+    
+                <li ng-show="{{$state.showHome}}">
+                    <a href="#"><i class="pe-7s-cart pe-2x pe-va"></i> <span class="nav-label">Online Store</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

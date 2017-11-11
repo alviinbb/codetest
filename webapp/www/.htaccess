@@ -1,0 +1,19 @@
+#RewriteCond %{HTTPS} !=on
+
+# BEGIN Portal
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+</IfModule>
+
+# Redirect everything to root dir
+<ifModule mod_rewrite.c>
+    RewriteEngine on
+    # Don't rewrite files or directories
+    RewriteCond %{REQUEST_FILENAME} -f [OR]
+    RewriteCond %{REQUEST_FILENAME} -d
+    RewriteRule ^ - [L]
+
+    RewriteRule ^ /index.html [L]
+</ifModule>

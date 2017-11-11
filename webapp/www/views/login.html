@@ -1,0 +1,89 @@
+<div ng-controller="LoginCtrl as login">
+    <div class="middle-box text-center loginscreen animated fadeInDown">
+        <div class="middle-box text-center loginscreen animated fadeInDown">
+            <div>
+                <div style="margin-top: 40px;margin-bottom: 40px;">
+                    <img src="img/logo.png" width="297" height="104" alt="">
+                </div>
+                
+                <div style="padding: 0px 20px;">
+                    <h3 style="font-size: 20px;font-weight: 400;line-height: normal;">
+                        Welcome to the <br>GAME
+                    </h3>
+                    <p style="margin-top:30px;">{{ initMessage }}</p>
+                    
+                    <form class="m-t" role="form" method="POST" ng-submit="login.tryLogin()">
+                        <div style="margin-top:20px; text-align:center;" class="form-group">
+                            <input type="text" style="text-align:center;" name="username" class="form-control" placeholder="username" ng-model="username" required>
+                        </div>
+
+                        <div class="form-group">
+                            <input type="password" style="text-align: center;" name="pw" class="form-control" placeholder="••••••" ng-model="pw" required>
+                        </div>
+
+                        <div ng-show="showLoginAlert" class="alert alert-danger">
+                            <span class="text-danger">{{ loginErrorMsg }}</span>
+                        </div>
+
+                        <button type="submit" style="margin-top:50px;" class="btn btn-primary-coms btn-lg block full-width m-b">
+                            <i class="fa fa-lock" aria-hidden="true"></i> <span>Login</span>
+                        </button>
+
+                        <a data-toggle="modal" href="#shortModal">
+                            <p><strong>Forgot your password? Click here.</strong></p>
+                        </a>                
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="shortModal" class="modal modal-wide fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h1 class="modal-title">Password Reset</h1>
+                </div>
+                <div class="modal-body" style="text-align:center;">
+
+                    <div ng-show="showForgotPwAlert" class="{{ alertType }}">
+                        <span class="text-danger">{{ forgotPasswordErrorMsg }}</span>
+                    </div>
+
+                    <strong>Provide an Email ID for Verification</strong>
+                
+                    <form name="forgot_password" class="m-t" role="form" method="POST">
+                        <input type="hidden" name="param" value="forgot_password">      
+                        <div class="form-group" style="text-align: center;">
+                            <input type="text" name="email_id" class="form-control" ng-model="emailId" placeholder="Enter your Email ID...">
+                        </div>
+                    </form>
+                    
+                </div>
+            
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="emailId=''">Close</button>
+                    <button type="submit" class="btn btn-primary-coms" ng-click="login.requestPasswordReset()">Send Password</button>
+                </div>
+
+                
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->   
+
+    <div class="footer animated fadeInDown" style="text-align: center;">
+
+        <ul class="login-nav">
+            <li><a href="#">Terms of Use</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Resource Centre</a></li>
+            <li><a href="#">Support</a></li>
+            <li><a href="#">Contact Us</a></li>
+        </ul> 
+                    
+                    
+        <p style="padding-top:20px;">©Jumbointeractive - All rights reserved </p>                 
+    </div>
+</div>
