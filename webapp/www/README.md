@@ -38,7 +38,7 @@ build the image
  ./run.sh
 ```
 
-To check/access API response [http://localhost:8080](http://localhost:8088)
+To check/access API response [http://localhost:8088](http://localhost:8088)
 
 ## start webapp
 
